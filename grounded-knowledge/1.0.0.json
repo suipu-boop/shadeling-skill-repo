@@ -1,0 +1,27 @@
+{
+  "name": "溯源知识库",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "raw/wiki/archive 三层、每条引用可溯源、git 指纹测陈旧",
+  "description": "维护 AI 编译的知识库、要求每个数字/引文可回溯、检测文档与代码漂移时使用：三层结构、页头契约、接地规则、指纹漂移检测。",
+  "category": "协作",
+  "tags": [
+    "协作",
+    "知识库",
+    "溯源"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "溯源知识库",
+    "知识库维护",
+    "文档漂移",
+    "引用溯源"
+  ],
+  "content": "# 溯源知识库\n\nAI 编译的知识库最怕两件事：**数字查无出处、页面悄悄过时**。溯源知识库 = 三层结构 + 每条声明带来源 + git 指纹零成本测陈旧——只需要 git，别的什么都不用装。\n\n## 三层结构\n\n| 层 | 放什么 | 铁律 |\n|---|---|---|\n| `raw/` | 源材料：笔记/论文/记录/导出数据 | **只进不改**（要修就旁边加新文件） |\n| `wiki/` | 从 raw 和代码编译的页面 | 每个数字/日期/引文都链回来源 |\n| `archive/` | 过时/被取代的页面 | **移入不删除**，页头写明原因 |\n\n根上两文件：`index.md`（全部现行页面的地图）、`log.md`（只追加的变更日志）——与页面变更同一提交落盘。\n\n## 页头契约（每个 wiki 页开头）\n\n```\n> Raw: <编译自哪些源文件，逐个列出>\n> Fingerprint: git:<短哈希>（编译时针对的代码提交）\n> Monitored: <页面描述的代码路径清单>\n> Status: Current / Outdated / Disputed\n```\n\n行内声明同样带来源链接：「token 15 分钟过期（[raw/adr/0007.md]）」。\n\n## 接地规则（grounding）\n\n页面只陈述来源支撑的内容；**综合结论要自报家门并链接全部输入**；来源里的空白就写成空白，**不许编造填充**。机械可查：逐条声明回源文件搜原文数字/引文，搜不到 = 接地失败 = 阻断提交。\n\n## 漂移检测（零 token 成本）\n\n```bash\ngit diff --stat <指纹>..HEAD -- <monitored 路径...>\n```\n\n输出为空 = 页面仍与代码同步；有任何输出 = 该重编译（只重读变更文件、更新页面、盖新指纹）。毫秒级完成，**不用重读代码库**——这是比「定期人工过一遍」强一个量级的机制。\n\n## 工作流\n\n摄入（进 raw，不改旧件）→ 编译（wiki 页 + 页头 + 逐条来源 + 指纹）→ 检查（接地 + 漂移，不过不提交）→ 归档（过时页面移 archive 写明原因）→ 更新地图（index/log 同提交）。两个检查挂 pre-commit 或 CI 强制执行。\n\n## 收尾清单\n\n三层齐 / raw 只进不改 / 逐条声明有来源 / 指纹+monitored 齐 / 漂移检测自动化 / 归档不删除 / index 与 log 同步。",
+  "source": "third_party",
+  "upstream": "https://github.com/wshobson/agents",
+  "upstream_commit": "156b7a5e7a8b",
+  "converted_at": "2026-10-02",
+  "converted_by": "Shadeling 策展"
+}

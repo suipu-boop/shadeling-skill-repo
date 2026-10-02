@@ -1,0 +1,27 @@
+{
+  "name": "依赖升级",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "小步快跑：一个一个大版本、步步验证、codemod 批改",
+  "description": "处理框架大版本升级、安全补丁、依赖冲突时使用：语义化版本读法、升级顺序规划、分阶段验证、破坏性变更批处理。",
+  "category": "开发",
+  "tags": [
+    "升级",
+    "依赖",
+    "维护"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "依赖升级",
+    "框架升级",
+    "版本更新",
+    "breaking change"
+  ],
+  "content": "# 依赖升级\n\n大版本升级的铁律：**一次一步、步步验证**——「一口气全升到最新」是生产事故的经典起点。\n\n## 先读懂版本号\n\n```\nMAJOR.MINOR.PATCH\n 2 .  3  .  1\n\nMAJOR：破坏性变更（升级要动代码）\nMINOR：新功能、向后兼容\nPATCH：bug 修复\n^2.3.1 = 2.x 最新     ~2.3.1 = 2.3.x（锁 minor）\n```\n\n升级计划按 MAJOR 逐个跨越：跨 3 个大版本 = 按官方迁移指南走 3 次小升级，别跳——迁移工具和文档都按「相邻版本」写。\n\n## 升级顺序（框架依赖链）\n\n**自底向上**：语言/编译器 → 核心框架 → 框架周边（路由/状态库）→ 测试工具 → 构建工具。每步：\n\n1. 升一个 → 读该版本的 CHANGELOG/MIGRATION\n2. 跑全量测试 + 构建\n3. 绿了才动下一个，红了先修红的\n\n## 兼容性矩阵\n\n大版本升级前先画：主框架各版本 × 关键依赖的兼容表（官方 peer dependency 要求为准）——**锁定一版主框架，再定周边依赖的目标版本**，避免「A 要 B 的 v1、C 要 B 的 v2」死锁。\n\n## 破坏性变更批处理\n\n- **官方 codemod 优先**：大版本常带自动迁移工具（jscodeshift 类）——先 dry-run 预览，再真跑，比手改快一个量级。\n- 没有官方工具的：写一次性迁移脚本（正则替换 + import 更新），跑完即删，**不进代码库**。\n- 手改兜底：按报错逐个修——TypeScript 项目先让类型报错浮出全部破坏点，再逐个击破。\n\n## 安全补丁（插队规则）\n\n安全升级走快速通道：PATCH/安全版**直接升**（风险极低）+ 回归测试关键路径；MAJOR 安全升级才走完整流程。别让「排期」挡住已知漏洞——**CVE 在跑的补丁优先级高于一切 feature**。\n\n## 回滚预案\n\n升级提交单独成 PR（可整体 revert）；数据 schema 变更（如 ORM 升级带 migration）必须向后兼容一个版本——回滚时旧代码还能读新 schema。\n\n## 收尾清单\n\n逐 MAJOR 不跳跃 / 自底向上每步验证 / 兼容矩阵先行 / codemod dry-run / 安全补丁插队 / 升级独立 PR + 可回滚。",
+  "source": "third_party",
+  "upstream": "https://github.com/wshobson/agents",
+  "upstream_commit": "156b7a5e7a8b",
+  "converted_at": "2026-10-02",
+  "converted_by": "Shadeling 策展"
+}

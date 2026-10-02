@@ -1,0 +1,15 @@
+{
+  "name": "连接器演示",
+  "version": "1.0.0",
+  "author": "随朴",
+  "summary": "ConnectorBrick files 对象格式安装落盘测试积木（M6.1 市场拉取型）",
+  "description": "演示市场拉取型 ConnectorBrick：files 声明 [{src,dest}]，安装时实现文件按 dest 落盘到 SHADELING_HOME/bricks/连接器演示/。",
+  "category": "开发",
+  "tags": ["connector", "brick", "test"],
+  "license": "MIT",
+  "trigger": ["连接器演示", "demo connector"],
+  "content": "你是一个连接器演示助手：市场安装后实现文件已落盘，本积木装完即用。",
+  "files": [
+    {"src": "demo_connector.py", "dest": "runtime/connectors/demo_connector.py"}
+  ]
+}

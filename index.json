@@ -1,6 +1,6 @@
 {
   "schema": "shadeling-skill-repo/v1",
-  "updated_at": "2026-09-10",
+  "updated_at": "2026-10-02",
   "maintainer": "Shadeling 官方策展源（示例）",
   "skills": [
     {
@@ -66,10 +66,24 @@
       "download_url": "document-writer/1.0.0.json"
     },
     {
+      "id": "connector-demo",
+      "name": "连接器演示",
+      "version": "1.0.0",
+      "author": "随朴",
+      "summary": "ConnectorBrick files 对象格式安装落盘测试积木（M6.1 市场拉取型）",
+      "category": "开发",
+      "tags": [
+        "connector",
+        "brick",
+        "test"
+      ],
+      "download_url": "connector-demo/brick.json"
+    },
+    {
       "id": "plan-test-code",
       "name": "实施计划",
       "version": "1.0.0",
-      "author": "Shadeling 策展（设计意图参考 superpowers/writing-plans，MIT）",
+      "author": "Shadeling 策展",
       "summary": "把已确认需求拆成可照着做的分步实施计划",
       "category": "开发",
       "tags": [
@@ -77,7 +91,13 @@
         "任务拆分",
         "开发流程"
       ],
-      "download_url": "plan-test-code/1.0.0.json"
+      "download_url": "plan-test-code/1.0.0.json",
+      "trigger": [
+        "写实施计划",
+        "拆任务",
+        "制定开发计划",
+        "任务排期"
+      ]
     },
     {
       "id": "code-reviewer",
@@ -93,6 +113,2027 @@
         "重构"
       ],
       "download_url": "code-reviewer/1.0.0.json"
+    },
+    {
+      "id": "idea-sketch",
+      "name": "创意构思",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "动手前把想法聊清楚，双方点头再开工",
+      "category": "开发",
+      "tags": [
+        "需求梳理",
+        "构思",
+        "设计讨论"
+      ],
+      "download_url": "idea-sketch/1.0.0.json",
+      "trigger": [
+        "头脑风暴",
+        "帮我构思",
+        "想做个功能",
+        "需求梳理",
+        "设计讨论"
+      ]
+    },
+    {
+      "id": "root-cause-debug",
+      "name": "系统化排障",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "先查清楚真正原因，再动手修",
+      "category": "开发",
+      "tags": [
+        "排障",
+        "根因",
+        "调试"
+      ],
+      "download_url": "root-cause-debug/1.0.0.json",
+      "trigger": [
+        "排查问题",
+        "修个报错",
+        "测试挂了",
+        "行为不对",
+        "出错了"
+      ]
+    },
+    {
+      "id": "test-first",
+      "name": "测试先行",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "先写一个会失败的测试，再写代码让它通过",
+      "category": "开发",
+      "tags": [
+        "TDD",
+        "测试",
+        "开发流程"
+      ],
+      "download_url": "test-first/1.0.0.json",
+      "trigger": [
+        "写测试",
+        "TDD",
+        "测试驱动",
+        "先写测试"
+      ]
+    },
+    {
+      "id": "verify-before-done",
+      "name": "完工验证",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "说完成之前，先跑一遍验证拿证据",
+      "category": "开发",
+      "tags": [
+        "验证",
+        "质量把关",
+        "交付检查"
+      ],
+      "download_url": "verify-before-done/1.0.0.json",
+      "trigger": [
+        "验证一下",
+        "检查完成",
+        "交付前检查",
+        "跑一遍确认"
+      ]
+    },
+    {
+      "id": "visual-poster",
+      "name": "视觉海报设计",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "先定风格，再画成海报或画作",
+      "category": "创作",
+      "tags": [
+        "海报",
+        "设计",
+        "视觉",
+        "生成图"
+      ],
+      "download_url": "visual-poster/1.0.0.json",
+      "trigger": [
+        "做张海报",
+        "设计封面",
+        "画一张图",
+        "生成视觉作品"
+      ]
+    },
+    {
+      "id": "review-reception",
+      "name": "评审接收",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "修改意见先核实对不对，再动手改",
+      "category": "开发",
+      "tags": [
+        "代码评审",
+        "反馈处理",
+        "开发流程"
+      ],
+      "download_url": "review-reception/1.0.0.json",
+      "trigger": [
+        "收到修改意见",
+        "代码审查反馈",
+        "反馈意见",
+        "处理评审"
+      ]
+    },
+    {
+      "id": "weekly-3p",
+      "name": "三栏周报",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "进展、计划、问题三栏，30 秒读完的周报",
+      "category": "办公",
+      "tags": [
+        "周报",
+        "工作汇报",
+        "团队沟通"
+      ],
+      "download_url": "weekly-3p/1.0.0.json",
+      "trigger": [
+        "写周报",
+        "三栏汇报",
+        "工作总结报告",
+        "团队周报"
+      ]
+    },
+    {
+      "id": "nudge-questions",
+      "name": "追问提醒",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "重要答案后附 2-3 个帮你自查的追问",
+      "category": "对话",
+      "tags": [
+        "追问",
+        "批判性思维",
+        "答案核查"
+      ],
+      "download_url": "nudge-questions/1.0.0.json",
+      "trigger": [
+        "帮我把关",
+        "追问一下",
+        "这个结论可靠吗",
+        "帮我多想想"
+      ]
+    },
+    {
+      "id": "theme-styling",
+      "name": "主题配色",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "十套预设主题，给文档幻灯片统一换装",
+      "category": "创作",
+      "tags": [
+        "配色",
+        "主题",
+        "幻灯片美化",
+        "文档样式"
+      ],
+      "download_url": "theme-styling/1.0.0.json",
+      "trigger": [
+        "换个主题",
+        "配色方案",
+        "美化幻灯片",
+        "统一风格"
+      ]
+    },
+    {
+      "id": "code-art",
+      "name": "代码艺术生成",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "先定创意方向，再用代码做出生动艺术",
+      "category": "创作",
+      "tags": [
+        "生成艺术",
+        "代码艺术",
+        "粒子系统",
+        "可视化"
+      ],
+      "download_url": "code-art/1.0.0.json",
+      "trigger": [
+        "生成艺术",
+        "粒子效果",
+        "流场动画",
+        "代码画画"
+      ]
+    },
+    {
+      "id": "doc-co-write",
+      "name": "文档共写",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "收材料、逐段打磨、试读把关三步写文档",
+      "category": "办公",
+      "tags": [
+        "文档写作",
+        "方案撰写",
+        "协作",
+        "规格说明"
+      ],
+      "download_url": "doc-co-write/1.0.0.json",
+      "trigger": [
+        "一起写文档",
+        "帮我写方案",
+        "写个规格",
+        "打磨文档"
+      ]
+    },
+    {
+      "id": "ui-design-taste",
+      "name": "界面设计把关",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "让界面像定制品而非模板货，拒绝千篇一律",
+      "category": "创作",
+      "tags": [
+        "界面设计",
+        "视觉",
+        "UI",
+        "审美"
+      ],
+      "download_url": "ui-design-taste/1.0.0.json",
+      "trigger": [
+        "设计界面",
+        "界面太丑",
+        "页面改版",
+        "视觉方向"
+      ]
+    },
+    {
+      "id": "plan-execution",
+      "name": "按计划执行",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "照着计划逐项做，留好记录不遗忘",
+      "category": "开发",
+      "tags": [
+        "执行计划",
+        "开发流程",
+        "任务推进"
+      ],
+      "download_url": "plan-execution/1.0.0.json",
+      "trigger": [
+        "按计划执行",
+        "执行这份计划",
+        "照计划做",
+        "开始施工"
+      ]
+    },
+    {
+      "id": "idea-grill",
+      "name": "需求拷问",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "追问到底把想法拷问成一份设计树，不留暗桩",
+      "category": "规划",
+      "tags": [
+        "拷问",
+        "需求",
+        "决策"
+      ],
+      "download_url": "idea-grill/1.0.0.json"
+    },
+    {
+      "id": "lesson-builder",
+      "name": "拆题教学",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "把一个主题拆成一节节小课，一节一个能带走的收获",
+      "category": "教学",
+      "tags": [
+        "教学",
+        "学习",
+        "课程"
+      ],
+      "download_url": "lesson-builder/1.0.0.json"
+    },
+    {
+      "id": "session-handoff",
+      "name": "会话交接",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "把当前对话压缩成交接文档，让下一个会话无缝接手",
+      "category": "效率",
+      "tags": [
+        "交接",
+        "会话",
+        "连续性"
+      ],
+      "download_url": "session-handoff/1.0.0.json"
+    },
+    {
+      "id": "deai-writing",
+      "name": "去AI味",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "挑出机器腔的句子，改回人写的样子，不装腔",
+      "category": "写作",
+      "tags": [
+        "去AI味",
+        "润色",
+        "文风"
+      ],
+      "download_url": "deai-writing/1.0.0.json"
+    },
+    {
+      "id": "material-to-article",
+      "name": "素材成稿",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "把一堆素材逐段聊成文章，段段经你确认",
+      "category": "写作",
+      "tags": [
+        "写作",
+        "成稿",
+        "素材"
+      ],
+      "download_url": "material-to-article/1.0.0.json"
+    },
+    {
+      "id": "fragment-gather",
+      "name": "碎片采集",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "边聊边把对话里能用的句子存进素材库",
+      "category": "写作",
+      "tags": [
+        "素材",
+        "采集",
+        "头脑风暴"
+      ],
+      "download_url": "fragment-gather/1.0.0.json"
+    },
+    {
+      "id": "journey-writing",
+      "name": "行程式写作",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "把素材铺成一站一站的旅程，每站确认再走下一站",
+      "category": "写作",
+      "tags": [
+        "写作",
+        "结构",
+        "行程"
+      ],
+      "download_url": "journey-writing/1.0.0.json"
+    },
+    {
+      "id": "domain-glossary",
+      "name": "领域词典",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "边聊边把项目里的术语敲定成词典，决策随手记档",
+      "category": "规划",
+      "tags": [
+        "术语",
+        "词典",
+        "决策"
+      ],
+      "download_url": "domain-glossary/1.0.0.json"
+    },
+    {
+      "id": "tdd",
+      "name": "测试先行",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "先写会失败的测试，再写刚好够的代码",
+      "category": "开发",
+      "tags": [
+        "测试",
+        "TDD",
+        "红绿循环"
+      ],
+      "download_url": "tdd/1.0.0.json"
+    },
+    {
+      "id": "dual-axis-review",
+      "name": "双轴代码审查",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "规范与规格分开审，互不遮掩",
+      "category": "开发",
+      "tags": [
+        "代码审查",
+        "规范",
+        "需求"
+      ],
+      "download_url": "dual-axis-review/1.0.0.json"
+    },
+    {
+      "id": "bug-diagnosis-loop",
+      "name": "诊断闭环",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "先建能变红的复现环，再谈假设",
+      "category": "开发",
+      "tags": [
+        "诊断",
+        "调试",
+        "复现",
+        "性能"
+      ],
+      "download_url": "bug-diagnosis-loop/1.0.0.json"
+    },
+    {
+      "id": "deep-module-design",
+      "name": "深模块设计",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "小接口藏大实现，缝上好测试",
+      "category": "开发",
+      "tags": [
+        "架构",
+        "接口设计",
+        "可测性"
+      ],
+      "download_url": "deep-module-design/1.0.0.json"
+    },
+    {
+      "id": "spec-implementation",
+      "name": "规格实施",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "沿就绪前沿并行实施工单图",
+      "category": "开发",
+      "tags": [
+        "实施",
+        "工单",
+        "并行",
+        "项目交付"
+      ],
+      "download_url": "spec-implementation/1.0.0.json"
+    },
+    {
+      "id": "primary-source-research",
+      "name": "一手源调研",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "只查一手来源，论断皆可溯源",
+      "category": "调研",
+      "tags": [
+        "调研",
+        "事实核查",
+        "文档"
+      ],
+      "download_url": "primary-source-research/1.0.0.json"
+    },
+    {
+      "id": "skill-first",
+      "name": "技能优先",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "动手前先查技能库，别凭记忆裸干",
+      "category": "开发",
+      "tags": [
+        "技能",
+        "纪律",
+        "工作流"
+      ],
+      "download_url": "skill-first/1.0.0.json"
+    },
+    {
+      "id": "parallel-dispatch",
+      "name": "并行派工",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "几件互不相干的事，一件派一个代理并行干",
+      "category": "开发",
+      "tags": [
+        "并行",
+        "派工",
+        "子代理"
+      ],
+      "download_url": "parallel-dispatch/1.0.0.json"
+    },
+    {
+      "id": "proactive-review",
+      "name": "主动求审",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "干完一段就请审查，别等问题滚大",
+      "category": "开发",
+      "tags": [
+        "代码审查",
+        "质量把关"
+      ],
+      "download_url": "proactive-review/1.0.0.json"
+    },
+    {
+      "id": "isolated-workspace",
+      "name": "隔离工作区",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "开工前先建隔离工作区，别在主检出上动土",
+      "category": "开发",
+      "tags": [
+        "git",
+        "worktree",
+        "隔离",
+        "工作区"
+      ],
+      "download_url": "isolated-workspace/1.0.0.json"
+    },
+    {
+      "id": "branch-finish",
+      "name": "分支收尾",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "全绿后给选项，等用户拍板收尾",
+      "category": "开发",
+      "tags": [
+        "git",
+        "分支",
+        "合并",
+        "收尾"
+      ],
+      "download_url": "branch-finish/1.0.0.json"
+    },
+    {
+      "id": "subagent-pipeline",
+      "name": "子代理流水线",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "每任务新代理实施，每任务过审",
+      "category": "开发",
+      "tags": [
+        "子代理",
+        "计划执行",
+        "审查",
+        "流水线"
+      ],
+      "download_url": "subagent-pipeline/1.0.0.json"
+    },
+    {
+      "id": "skill-crafting",
+      "name": "技能写作",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "写技能先测基线失败，再最小成文",
+      "category": "教学 productivity",
+      "tags": [
+        "技能",
+        "TDD",
+        "文档"
+      ],
+      "download_url": "skill-crafting/1.0.0.json"
+    },
+    {
+      "id": "mcp-server-design",
+      "name": "MCP 服务器设计",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "四阶段造 MCP 服务器，从研究到评测",
+      "category": "开发",
+      "tags": [
+        "MCP",
+        "工具设计",
+        "集成"
+      ],
+      "download_url": "mcp-server-design/1.0.0.json"
+    },
+    {
+      "id": "skill-router",
+      "name": "技能流程路由",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "拿不准用哪条流程时查这张地图：主流程、岔路、边界",
+      "category": "开发",
+      "tags": [
+        "流程",
+        "路由",
+        "工作流"
+      ],
+      "download_url": "skill-router/1.0.0.json"
+    },
+    {
+      "id": "grilling-interview",
+      "name": "追问访谈",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "把模糊想法磨清楚的访谈原语：设计树加轮次提问",
+      "category": "通用",
+      "tags": [
+        "访谈",
+        "需求澄清",
+        "决策"
+      ],
+      "download_url": "grilling-interview/1.0.0.json"
+    },
+    {
+      "id": "conversation-to-spec",
+      "name": "会话成规格",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "不再访谈，只综合：把会话里已定的东西写成规格",
+      "category": "开发",
+      "tags": [
+        "规格",
+        "文档",
+        "实施"
+      ],
+      "download_url": "conversation-to-spec/1.0.0.json"
+    },
+    {
+      "id": "spec-to-tickets",
+      "name": "规格拆工单",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "规格拆成曳光弹纵切片工单，每单带阻塞边",
+      "category": "开发",
+      "tags": [
+        "工单",
+        "任务拆分",
+        "计划"
+      ],
+      "download_url": "spec-to-tickets/1.0.0.json"
+    },
+    {
+      "id": "issue-triage",
+      "name": "问题分诊",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "原始诉求过一道分诊状态机，产出代理可执行的工单",
+      "category": "开发",
+      "tags": [
+        "分诊",
+        "问题管理",
+        "工单"
+      ],
+      "download_url": "issue-triage/1.0.0.json"
+    },
+    {
+      "id": "fog-wayfinding",
+      "name": "迷雾寻路",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "大雾工程先画决策地图，逐个解决决策直到路清",
+      "category": "开发",
+      "tags": [
+        "规划",
+        "决策",
+        "大型工程"
+      ],
+      "download_url": "fog-wayfinding/1.0.0.json"
+    },
+    {
+      "id": "domain-modeling",
+      "name": "领域建模",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "设计中主动磨领域语言：挑战术语、定边界、记决定",
+      "category": "开发",
+      "tags": [
+        "领域建模",
+        "词汇表",
+        "决策记录"
+      ],
+      "download_url": "domain-modeling/1.0.0.json"
+    },
+    {
+      "id": "arch-survey",
+      "name": "架构普查",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "找架构摩擦点，列深化机会清单，供你挑着改",
+      "category": "开发",
+      "tags": [
+        "架构",
+        "重构",
+        "代码库保养"
+      ],
+      "download_url": "arch-survey/1.0.0.json"
+    },
+    {
+      "id": "session-retro",
+      "name": "会话复盘",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "干完活翻会话找毛病，改环境不改代码",
+      "category": "通用",
+      "tags": [
+        "复盘",
+        "持续改进",
+        "规范"
+      ],
+      "download_url": "session-retro/1.0.0.json"
+    },
+    {
+      "id": "py-antipatterns",
+      "name": "Python 反模式清单",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "收工前过一遍常见坏味道，逐条有改法",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "代码质量",
+        "评审"
+      ],
+      "download_url": "py-antipatterns/1.0.0.json"
+    },
+    {
+      "id": "py-error-handling",
+      "name": "Python 错误处理",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "早校验、具体异常、留上下文、批量分账",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "错误处理",
+        "异常"
+      ],
+      "download_url": "py-error-handling/1.0.0.json"
+    },
+    {
+      "id": "py-testing-patterns",
+      "name": "Python 测试模式",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "pytest 实战套路：夹具、参数化、mock、异步、属性测试",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "测试",
+        "pytest"
+      ],
+      "download_url": "py-testing-patterns/1.0.0.json"
+    },
+    {
+      "id": "py-observability",
+      "name": "Python 可观测性",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "结构化日志加关联 ID 加四金信号，出事不靠猜",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "可观测性",
+        "日志"
+      ],
+      "download_url": "py-observability/1.0.0.json"
+    },
+    {
+      "id": "py-resilience",
+      "name": "Python 韧性模式",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "瞬时故障白名单重试，指数退避加抖动加超时",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "韧性",
+        "重试"
+      ],
+      "download_url": "py-resilience/1.0.0.json"
+    },
+    {
+      "id": "py-type-safety",
+      "name": "Python 类型安全",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "注释当文档用：签名全标注、收窄、泛型、Result 模式",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "类型",
+        "类型检查"
+      ],
+      "download_url": "py-type-safety/1.0.0.json"
+    },
+    {
+      "id": "py-performance",
+      "name": "Python 性能优化",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "先测量再动手：探明热路径，选对数据结构",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "性能",
+        "优化"
+      ],
+      "download_url": "py-performance/1.0.0.json"
+    },
+    {
+      "id": "py-packaging",
+      "name": "Python 打包发布",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "pyproject 一把梭：src 布局、构建、发布 PyPI",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "打包",
+        "发布"
+      ],
+      "download_url": "py-packaging/1.0.0.json"
+    },
+    {
+      "id": "review-craft",
+      "name": "评审功夫",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "怎么把代码评审做好：四阶段流程加分级反馈",
+      "category": "开发",
+      "tags": [
+        "评审",
+        "代码质量",
+        "协作"
+      ],
+      "download_url": "review-craft/1.0.0.json"
+    },
+    {
+      "id": "debug-craft",
+      "name": "调试功夫",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "科学方法调 bug：复现、取证、假设、验证",
+      "category": "开发",
+      "tags": [
+        "调试",
+        "排障",
+        "根因"
+      ],
+      "download_url": "debug-craft/1.0.0.json"
+    },
+    {
+      "id": "sql-optimization",
+      "name": "SQL 优化",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "先看执行计划，再上对索引，改写慢查询",
+      "category": "开发",
+      "tags": [
+        "SQL",
+        "数据库",
+        "性能"
+      ],
+      "download_url": "sql-optimization/1.0.0.json"
+    },
+    {
+      "id": "git-advanced",
+      "name": "Git 高级操作",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "改历史、摘提交、二分找回，reflog 是安全网",
+      "category": "开发",
+      "tags": [
+        "Git",
+        "版本控制",
+        "工作流"
+      ],
+      "download_url": "git-advanced/1.0.0.json"
+    },
+    {
+      "id": "auth-patterns",
+      "name": "认证授权模式",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "认证是谁、授权是能干啥：会话、JWT、OAuth2、RBAC",
+      "category": "开发",
+      "tags": [
+        "认证",
+        "授权",
+        "安全"
+      ],
+      "download_url": "auth-patterns/1.0.0.json"
+    },
+    {
+      "id": "api-design",
+      "name": "API 设计原则",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "资源名词化、方法语义化、版本化、分页限速",
+      "category": "开发",
+      "tags": [
+        "API",
+        "REST",
+        "接口设计"
+      ],
+      "download_url": "api-design/1.0.0.json"
+    },
+    {
+      "id": "prompt-patterns",
+      "name": "提示工程模式",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "少样本、思维链、结构化输出、模板化系统提示",
+      "category": "AI",
+      "tags": [
+        "提示工程",
+        "LLM",
+        "结构化输出"
+      ],
+      "download_url": "prompt-patterns/1.0.0.json"
+    },
+    {
+      "id": "llm-evaluation",
+      "name": "LLM 评估",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "自动指标、人工抽评、模型当裁判三轨并行",
+      "category": "AI",
+      "tags": [
+        "LLM",
+        "评估",
+        "质量测量"
+      ],
+      "download_url": "llm-evaluation/1.0.0.json"
+    },
+    {
+      "id": "rag-method",
+      "name": "RAG 落地",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "检索增强四件套：向库、嵌入、检索策略、重排",
+      "category": "AI",
+      "tags": [
+        "RAG",
+        "检索",
+        "LLM"
+      ],
+      "download_url": "rag-method/1.0.0.json"
+    },
+    {
+      "id": "layered-architecture",
+      "name": "分层架构",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "依赖向内：干净架构、六边形、DDD 三种分层法",
+      "category": "开发",
+      "tags": [
+        "架构",
+        "分层",
+        "DDD"
+      ],
+      "download_url": "layered-architecture/1.0.0.json"
+    },
+    {
+      "id": "cqrs-patterns",
+      "name": "读写分离",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "CQRS：命令管写、查询管读，两套模型独立演化",
+      "category": "开发",
+      "tags": [
+        "架构",
+        "CQRS",
+        "读写分离"
+      ],
+      "download_url": "cqrs-patterns/1.0.0.json"
+    },
+    {
+      "id": "event-store-design",
+      "name": "事件存储设计",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "只追加、有序、可订阅：事件溯源的地基设计",
+      "category": "开发",
+      "tags": [
+        "架构",
+        "事件溯源",
+        "存储"
+      ],
+      "download_url": "event-store-design/1.0.0.json"
+    },
+    {
+      "id": "microservices-patterns",
+      "name": "微服务模式",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "拆服务、定边界、防雪崩：微服务核心套路",
+      "category": "开发",
+      "tags": [
+        "架构",
+        "微服务",
+        "分布式"
+      ],
+      "download_url": "microservices-patterns/1.0.0.json"
+    },
+    {
+      "id": "saga-patterns",
+      "name": "Saga 编排",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "跨服务事务靠补偿：每步幂等、每步超时、每步可测",
+      "category": "开发",
+      "tags": [
+        "架构",
+        "分布式事务",
+        "Saga"
+      ],
+      "download_url": "saga-patterns/1.0.0.json"
+    },
+    {
+      "id": "projection-patterns",
+      "name": "投影模式",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "事件流变读模型：幂等重放、断点续跑、落后告警",
+      "category": "开发",
+      "tags": [
+        "架构",
+        "事件溯源",
+        "读模型"
+      ],
+      "download_url": "projection-patterns/1.0.0.json"
+    },
+    {
+      "id": "async-patterns",
+      "name": "异步模式",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "async 三坑：忘 await、堵循环、不管取消",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "异步",
+        "并发"
+      ],
+      "download_url": "async-patterns/1.0.0.json"
+    },
+    {
+      "id": "resource-management",
+      "name": "资源管理",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "上下文管理器管资源：进入即 acquire，退出必释放",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "资源",
+        "上下文管理器"
+      ],
+      "download_url": "resource-management/1.0.0.json"
+    },
+    {
+      "id": "config-management",
+      "name": "配置管理",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "类型化配置：外置、启动即校验、缺了就崩",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "配置",
+        "环境变量"
+      ],
+      "download_url": "config-management/1.0.0.json"
+    },
+    {
+      "id": "project-structure",
+      "name": "项目结构",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "一文件一概念、扁平目录、显式导出、测试镜像源码",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "项目结构",
+        "模块化"
+      ],
+      "download_url": "project-structure/1.0.0.json"
+    },
+    {
+      "id": "code-style",
+      "name": "代码风格",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "格式化交给工具，人只管命名清晰和文档完整",
+      "category": "开发",
+      "tags": [
+        "Python",
+        "代码风格",
+        "工具链"
+      ],
+      "download_url": "code-style/1.0.0.json"
+    },
+    {
+      "id": "design-principles",
+      "name": "设计原则",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "KISS、单一职责、组合优于继承、三次法则",
+      "category": "开发",
+      "tags": [
+        "设计",
+        "原则",
+        "重构"
+      ],
+      "download_url": "design-principles/1.0.0.json"
+    },
+    {
+      "id": "threat-modeling",
+      "name": "威胁建模",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "STRIDE 六问过一遍系统，威胁画成攻击树",
+      "category": "安全",
+      "tags": [
+        "安全",
+        "威胁建模",
+        "STRIDE"
+      ],
+      "download_url": "threat-modeling/1.0.0.json"
+    },
+    {
+      "id": "security-requirements",
+      "name": "安全需求",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "威胁变需求：可追溯、可测试、带验收标准",
+      "category": "安全",
+      "tags": [
+        "安全",
+        "需求",
+        "合规"
+      ],
+      "download_url": "security-requirements/1.0.0.json"
+    },
+    {
+      "id": "incident-postmortem",
+      "name": "事故复盘",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "无指责复盘：问系统不问个人，行动项必须落地",
+      "category": "安全",
+      "tags": [
+        "复盘",
+        "事故",
+        "根因分析"
+      ],
+      "download_url": "incident-postmortem/1.0.0.json"
+    },
+    {
+      "id": "incident-response",
+      "name": "事故响应",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "分级响应：预案写给凌晨三点的脑子",
+      "category": "安全",
+      "tags": [
+        "事故响应",
+        "运维",
+        "runbook"
+      ],
+      "download_url": "incident-response/1.0.0.json"
+    },
+    {
+      "id": "slo-reliability",
+      "name": "可靠性目标",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "SLI 测什么、SLO 定多高、错误预算怎么花",
+      "category": "安全",
+      "tags": [
+        "可靠性",
+        "SLO",
+        "运维"
+      ],
+      "download_url": "slo-reliability/1.0.0.json"
+    },
+    {
+      "id": "finetune-routing",
+      "name": "微调决策路由",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "先下匝道：多数「微调」该走 RAG 或提示工程",
+      "category": "AI",
+      "tags": [
+        "LLM",
+        "微调",
+        "决策"
+      ],
+      "download_url": "finetune-routing/1.0.0.json"
+    },
+    {
+      "id": "finetune-eval-first",
+      "name": "微调评测先行",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "没评测集不训练：金标、评分器、基线三件先备齐",
+      "category": "AI",
+      "tags": [
+        "LLM",
+        "微调",
+        "评估"
+      ],
+      "download_url": "finetune-eval-first/1.0.0.json"
+    },
+    {
+      "id": "dataset-curation",
+      "name": "训练数据策展",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "质量压倒数量：格式对方法、模板先套、合成混入有度",
+      "category": "AI",
+      "tags": [
+        "LLM",
+        "训练数据",
+        "数据质量"
+      ],
+      "download_url": "dataset-curation/1.0.0.json"
+    },
+    {
+      "id": "model-release-gate",
+      "name": "模型发布门禁",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "四道门禁放行模型：数据、漂移、对比、导出冒烟",
+      "category": "AI",
+      "tags": [
+        "LLM",
+        "发布",
+        "模型上线"
+      ],
+      "download_url": "model-release-gate/1.0.0.json"
+    },
+    {
+      "id": "visual-design-system",
+      "name": "视觉设计系统",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "字号有阶、间距八点、颜色语义化——三系统打底",
+      "category": "设计",
+      "tags": [
+        "设计",
+        "设计系统",
+        "UI"
+      ],
+      "download_url": "visual-design-system/1.0.0.json"
+    },
+    {
+      "id": "accessibility-design",
+      "name": "无障碍设计",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "键盘先行、语义标签、对比达标、尊重系统偏好",
+      "category": "设计",
+      "tags": [
+        "设计",
+        "无障碍",
+        "WCAG"
+      ],
+      "download_url": "accessibility-design/1.0.0.json"
+    },
+    {
+      "id": "design-tokens",
+      "name": "设计令牌",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "设计决策变代码变量：三层令牌加主题切换",
+      "category": "设计",
+      "tags": [
+        "设计系统",
+        "令牌",
+        "主题"
+      ],
+      "download_url": "design-tokens/1.0.0.json"
+    },
+    {
+      "id": "task-coordination",
+      "name": "任务协同",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "按边界拆任务：一人一文件、依赖图浅宽、共享走接口",
+      "category": "协作",
+      "tags": [
+        "协作",
+        "并行开发",
+        "任务拆分"
+      ],
+      "download_url": "task-coordination/1.0.0.json"
+    },
+    {
+      "id": "multi-review",
+      "name": "多维评审",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "按变更类型配评审维度，去重合并不重复计伤",
+      "category": "协作",
+      "tags": [
+        "评审",
+        "多智能体",
+        "质量保障"
+      ],
+      "download_url": "multi-review/1.0.0.json"
+    },
+    {
+      "id": "hypothesis-racing",
+      "name": "假设竞速调试",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "六类失败模式生成假设，多路并行收集证据",
+      "category": "开发",
+      "tags": [
+        "调试",
+        "假设",
+        "排障"
+      ],
+      "download_url": "hypothesis-racing/1.0.0.json"
+    },
+    {
+      "id": "team-composition",
+      "name": "团队构成",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "按任务配团队：最小覆盖、 preset 五型、完成即收",
+      "category": "协作",
+      "tags": [
+        "协作",
+        "团队",
+        "多智能体"
+      ],
+      "download_url": "team-composition/1.0.0.json"
+    },
+    {
+      "id": "deployment-pipeline",
+      "name": "部署管线",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "环境拓扑、发布门禁、灰度回滚——CD 设计骨架",
+      "category": "开发",
+      "tags": [
+        "CI/CD",
+        "部署",
+        "发布"
+      ],
+      "download_url": "deployment-pipeline/1.0.0.json"
+    },
+    {
+      "id": "cloud-cost",
+      "name": "云成本优化",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "先看清、再缩容、后议价——省钱四步框架",
+      "category": "开发",
+      "tags": [
+        "云",
+        "成本",
+        "运维"
+      ],
+      "download_url": "cloud-cost/1.0.0.json"
+    },
+    {
+      "id": "multi-cloud",
+      "name": "多云架构",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "四种多云姿势：容灾、择优、地理分布、云中立",
+      "category": "开发",
+      "tags": [
+        "云",
+        "架构",
+        "多云"
+      ],
+      "download_url": "multi-cloud/1.0.0.json"
+    },
+    {
+      "id": "service-mesh",
+      "name": "服务网格",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "mTLS、金丝雀、熔断下沉到基建层——网格通用法",
+      "category": "开发",
+      "tags": [
+        "服务网格",
+        "零信任",
+        "微服务"
+      ],
+      "download_url": "service-mesh/1.0.0.json"
+    },
+    {
+      "id": "embedding-selection",
+      "name": "嵌入选型",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "按任务选嵌入模型：分块、预处理、批量、缓存",
+      "category": "AI",
+      "tags": [
+        "AI",
+        "嵌入",
+        "检索"
+      ],
+      "download_url": "embedding-selection/1.0.0.json"
+    },
+    {
+      "id": "hybrid-search",
+      "name": "混合检索",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "向量管语义、关键词管精确、融合出结果",
+      "category": "AI",
+      "tags": [
+        "AI",
+        "检索",
+        "RAG"
+      ],
+      "download_url": "hybrid-search/1.0.0.json"
+    },
+    {
+      "id": "vector-index-tuning",
+      "name": "向量索引调优",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "按数据量选索引，调召回与延迟的平衡",
+      "category": "AI",
+      "tags": [
+        "AI",
+        "向量索引",
+        "性能"
+      ],
+      "download_url": "vector-index-tuning/1.0.0.json"
+    },
+    {
+      "id": "startup-metrics",
+      "name": "创业指标体系",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "单位经济、增长效率、现金三本账算清楚",
+      "category": "商业",
+      "tags": [
+        "商业",
+        "指标",
+        "增长"
+      ],
+      "download_url": "startup-metrics/1.0.0.json"
+    },
+    {
+      "id": "financial-modeling",
+      "name": "财务建模",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "同群组算收入、四类算成本、三情景算未来",
+      "category": "商业",
+      "tags": [
+        "商业",
+        "财务",
+        "预测"
+      ],
+      "download_url": "financial-modeling/1.0.0.json"
+    },
+    {
+      "id": "competitive-analysis",
+      "name": "竞争分析",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "五力打分、蓝海四动作、定位图找空白",
+      "category": "商业",
+      "tags": [
+        "商业",
+        "竞争",
+        "定位"
+      ],
+      "download_url": "competitive-analysis/1.0.0.json"
+    },
+    {
+      "id": "market-sizing",
+      "name": "市场测算",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "TAM/SAM/SOM 三层漏斗，自下而上最可信",
+      "category": "商业",
+      "tags": [
+        "商业",
+        "市场",
+        "TAM"
+      ],
+      "download_url": "market-sizing/1.0.0.json"
+    },
+    {
+      "id": "data-quality",
+      "name": "数据质量",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "六维检查、数据测试金字塔、合同与告警",
+      "category": "开发",
+      "tags": [
+        "数据",
+        "质量",
+        "数据工程"
+      ],
+      "download_url": "data-quality/1.0.0.json"
+    },
+    {
+      "id": "decision-records",
+      "name": "决策记录",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "重大技术决策写 ADR：背景、决定、后果三段",
+      "category": "协作",
+      "tags": [
+        "协作",
+        "架构",
+        "决策"
+      ],
+      "download_url": "decision-records/1.0.0.json"
+    },
+    {
+      "id": "kpi-dashboards",
+      "name": "指标看板",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "三层看板、每屏 5-7 个 KPI、口径写死",
+      "category": "商业",
+      "tags": [
+        "商业",
+        "数据可视化",
+        "KPI"
+      ],
+      "download_url": "kpi-dashboards/1.0.0.json"
+    },
+    {
+      "id": "data-storytelling",
+      "name": "数据叙事",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "先说结论、三段式结构、图选对了数据才说话",
+      "category": "商业",
+      "tags": [
+        "商业",
+        "数据分析",
+        "汇报"
+      ],
+      "download_url": "data-storytelling/1.0.0.json"
+    },
+    {
+      "id": "dependency-upgrade",
+      "name": "依赖升级",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "小步快跑：一个一个大版本、步步验证、codemod 批改",
+      "category": "开发",
+      "tags": [
+        "升级",
+        "依赖",
+        "维护"
+      ],
+      "download_url": "dependency-upgrade/1.0.0.json"
+    },
+    {
+      "id": "shell-defensive",
+      "name": "脚本防御",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "严格模式、变量引号、trap 清理、幂等可重跑",
+      "category": "开发",
+      "tags": [
+        "Shell",
+        "脚本",
+        "运维"
+      ],
+      "download_url": "shell-defensive/1.0.0.json"
+    },
+    {
+      "id": "privacy-compliance",
+      "name": "隐私合规",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "最小收集、合法依据、数据主体权利、留痕审计",
+      "category": "安全",
+      "tags": [
+        "安全",
+        "隐私",
+        "合规"
+      ],
+      "download_url": "privacy-compliance/1.0.0.json"
+    },
+    {
+      "id": "container-security",
+      "name": "容器安全",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "纵深防御：Pod 标准、网络默认拒绝、RBAC 最小权限",
+      "category": "安全",
+      "tags": [
+        "安全",
+        "容器",
+        "K8s"
+      ],
+      "download_url": "container-security/1.0.0.json"
+    },
+    {
+      "id": "gitops-delivery",
+      "name": "GitOps 交付",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "Git 即真相：声明式、自动拉取、持续对账",
+      "category": "开发",
+      "tags": [
+        "GitOps",
+        "部署",
+        "K8s"
+      ],
+      "download_url": "gitops-delivery/1.0.0.json"
+    },
+    {
+      "id": "monitoring-dashboards",
+      "name": "监控看板",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "RED 管服务、USE 管资源、看板即代码",
+      "category": "开发",
+      "tags": [
+        "监控",
+        "可观测性",
+        "指标"
+      ],
+      "download_url": "monitoring-dashboards/1.0.0.json"
+    },
+    {
+      "id": "distributed-tracing",
+      "name": "分布式追踪",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "全链路 span、上下文传播、采样省成本",
+      "category": "开发",
+      "tags": [
+        "可观测性",
+        "追踪",
+        "微服务"
+      ],
+      "download_url": "distributed-tracing/1.0.0.json"
+    },
+    {
+      "id": "go-concurrency",
+      "name": "Go 并发",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "用通信共享内存、context 传递取消、goroutine 必有出口",
+      "category": "开发",
+      "tags": [
+        "Go",
+        "并发",
+        "编程语言"
+      ],
+      "download_url": "go-concurrency/1.0.0.json"
+    },
+    {
+      "id": "memory-safety",
+      "name": "内存安全",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "RAII 绑定生命周期、所有权明确、工具兜底",
+      "category": "开发",
+      "tags": [
+        "内存安全",
+        "系统编程",
+        "资源管理"
+      ],
+      "download_url": "memory-safety/1.0.0.json"
+    },
+    {
+      "id": "backtesting-discipline",
+      "name": "回测纪律",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "五大偏差逐个防、三段数据切分、滚动前推验证",
+      "category": "商业",
+      "tags": [
+        "量化",
+        "回测",
+        "验证"
+      ],
+      "download_url": "backtesting-discipline/1.0.0.json"
+    },
+    {
+      "id": "risk-metrics",
+      "name": "风险度量",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "波动/尾部/回撤/风险调整四类并用，VaR 不够上 CVaR",
+      "category": "商业",
+      "tags": [
+        "量化",
+        "风险",
+        "金融"
+      ],
+      "download_url": "risk-metrics/1.0.0.json"
+    },
+    {
+      "id": "ts-type-engineering",
+      "name": "TS 类型工程",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "泛型/条件/映射/模板字面量四板斧，any 换 unknown",
+      "category": "开发",
+      "tags": [
+        "TypeScript",
+        "类型系统",
+        "前端"
+      ],
+      "download_url": "ts-type-engineering/1.0.0.json"
+    },
+    {
+      "id": "fe-state-management",
+      "name": "前端状态管理",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "五类状态各归各家，服务器状态交缓存库",
+      "category": "开发",
+      "tags": [
+        "前端",
+        "状态管理",
+        "React"
+      ],
+      "download_url": "fe-state-management/1.0.0.json"
+    },
+    {
+      "id": "server-components",
+      "name": "服务器组件",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "默认服务端渲染、按需客户端化、流式补全慢数据",
+      "category": "开发",
+      "tags": [
+        "前端",
+        "渲染架构",
+        "React"
+      ],
+      "download_url": "server-components/1.0.0.json"
+    },
+    {
+      "id": "context-engineering",
+      "name": "上下文工程",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "项目上下文当资产维护：产品/栈/工作流/任务四件套",
+      "category": "协作",
+      "tags": [
+        "协作",
+        "AI 开发",
+        "文档"
+      ],
+      "download_url": "context-engineering/1.0.0.json"
+    },
+    {
+      "id": "task-tracks",
+      "name": "任务轨道",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "一轨一事、小段推进、段段验证、完成即归档",
+      "category": "协作",
+      "tags": [
+        "协作",
+        "任务管理",
+        "工作流"
+      ],
+      "download_url": "task-tracks/1.0.0.json"
+    },
+    {
+      "id": "subscription-billing",
+      "name": "订阅计费",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "状态机、催缴挽回、按比例折算——订阅系统三支柱",
+      "category": "商业",
+      "tags": [
+        "订阅",
+        "计费",
+        "SaaS"
+      ],
+      "download_url": "subscription-billing/1.0.0.json"
+    },
+    {
+      "id": "payment-security",
+      "name": "支付安全",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "数据最小化、令牌化出域、合规范围收缩",
+      "category": "安全",
+      "tags": [
+        "安全",
+        "支付",
+        "合规"
+      ],
+      "download_url": "payment-security/1.0.0.json"
+    },
+    {
+      "id": "protocol-reverse",
+      "name": "协议逆向",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "抓包→定界→对样本→写规格→验证五步法",
+      "category": "开发",
+      "tags": [
+        "协议",
+        "逆向",
+        "网络"
+      ],
+      "download_url": "protocol-reverse/1.0.0.json"
+    },
+    {
+      "id": "human-ai-docs",
+      "name": "人机文档",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "四类内容块+AI 阅读清单——人和 AI 都好读",
+      "category": "协作",
+      "tags": [
+        "协作",
+        "文档",
+        "AI"
+      ],
+      "download_url": "human-ai-docs/1.0.0.json"
+    },
+    {
+      "id": "grounded-knowledge",
+      "name": "溯源知识库",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "raw/wiki/archive 三层、每条引用可溯源、git 指纹测陈旧",
+      "category": "协作",
+      "tags": [
+        "协作",
+        "知识库",
+        "溯源"
+      ],
+      "download_url": "grounded-knowledge/1.0.0.json"
+    },
+    {
+      "id": "build-premortem",
+      "name": "立项预审",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "七风险清单+五段预尸报告——动手前找最大假设",
+      "category": "商业",
+      "tags": [
+        "商业",
+        "产品",
+        "决策"
+      ],
+      "download_url": "build-premortem/1.0.0.json"
+    },
+    {
+      "id": "accessibility-audit",
+      "name": "无障碍审计",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "POUR 四原则 + 按影响分级 + 自动化只顶一半",
+      "category": "前端",
+      "tags": [
+        "前端",
+        "无障碍",
+        "测试"
+      ],
+      "download_url": "accessibility-audit/1.0.0.json"
+    },
+    {
+      "id": "e2e-testing",
+      "name": "端到端测试",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "少而准——只测关键路径，测行为不测实现",
+      "category": "测试",
+      "tags": [
+        "测试",
+        "E2E",
+        "质量"
+      ],
+      "download_url": "e2e-testing/1.0.0.json"
+    },
+    {
+      "id": "recsys-pipeline",
+      "name": "推荐排序管线",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "六阶段取-补-滤-排-选-副效应框架",
+      "category": "后端",
+      "tags": [
+        "后端",
+        "推荐",
+        "架构"
+      ],
+      "download_url": "recsys-pipeline/1.0.0.json"
+    },
+    {
+      "id": "skill-evaluation",
+      "name": "技能评估",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "分层评估：静态 lint 可信，LLM 评审只作参考",
+      "category": "工具",
+      "tags": [
+        "工具",
+        "评估",
+        "质量"
+      ],
+      "download_url": "skill-evaluation/1.0.0.json"
+    },
+    {
+      "id": "ai-debt-audit",
+      "name": "AI 债务审计",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "AI 生成代码的五种特有债：失败模式/孤儿/边界/幻觉依赖/漂移",
+      "category": "开发",
+      "tags": [
+        "开发",
+        "代码质量",
+        "AI"
+      ],
+      "download_url": "ai-debt-audit/1.0.0.json"
+    },
+    {
+      "id": "session-guard",
+      "name": "会话守卫",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "长会话三区巡检 + 压缩后锚定恢复",
+      "category": "工具",
+      "tags": [
+        "工具",
+        "Agent",
+        "长会话"
+      ],
+      "download_url": "session-guard/1.0.0.json"
+    },
+    {
+      "id": "service-resilience",
+      "name": "服务韧性",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "重试/超时/熔断/降级/隔离五件套",
+      "category": "后端",
+      "tags": [
+        "后端",
+        "可靠性",
+        "架构"
+      ],
+      "download_url": "service-resilience/1.0.0.json"
+    },
+    {
+      "id": "commit-gate",
+      "name": "提交闸门",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "拦截 --no-verify 等绕过旗标，逼质量门真跑",
+      "category": "工具",
+      "tags": [
+        "工具",
+        "Git",
+        "质量"
+      ],
+      "download_url": "commit-gate/1.0.0.json"
+    },
+    {
+      "id": "canvas-design",
+      "name": "画布设计",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "先立美学宣言，再用设计语言画出成品",
+      "category": "设计",
+      "tags": [
+        "设计",
+        "视觉",
+        "创意"
+      ],
+      "download_url": "canvas-design/1.0.0.json"
+    },
+    {
+      "id": "wizard-script",
+      "name": "向导脚本",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "把繁琐手工步骤写成一步步走的人机向导",
+      "category": "工具",
+      "tags": [
+        "工具",
+        "脚本",
+        "人机协作"
+      ],
+      "download_url": "wizard-script/1.0.0.json"
+    },
+    {
+      "id": "pr-description",
+      "name": "PR 描述",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "摘要+证据+合并风险三段，废话零容忍",
+      "category": "协作",
+      "tags": [
+        "协作",
+        "代码评审",
+        "Git"
+      ],
+      "download_url": "pr-description/1.0.0.json"
+    },
+    {
+      "id": "implementation-rhythm",
+      "name": "实施节奏",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "照单施工四拍：小步实现-常查-收尾全测-自审",
+      "category": "开发",
+      "tags": [
+        "开发",
+        "实施",
+        "测试"
+      ],
+      "download_url": "implementation-rhythm/1.0.0.json"
     }
   ]
 }

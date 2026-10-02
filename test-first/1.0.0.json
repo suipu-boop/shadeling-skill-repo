@@ -1,0 +1,27 @@
+{
+  "name": "测试先行",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "先写一个会失败的测试，再写代码让它通过",
+  "description": "写功能或修 bug 时用：先写一个会失败的测试，再写最少的代码让它通过。",
+  "category": "开发",
+  "tags": [
+    "TDD",
+    "测试",
+    "开发流程"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "写测试",
+    "TDD",
+    "测试驱动",
+    "先写测试"
+  ],
+  "content": "测试先行\n\n铁律：没有先失败的测试，不写实现代码。\n\n循环（每个行为一轮）：\n1. 红：写一个最小测试，描述还没存在的行为；运行并确认它以预期方式失败。没看着它失败，就不知道测试测的是不是对的东西。\n2. 绿：写刚好让测试通过的最小实现——不为未来多写一行。\n3. 清理：消除重复、改善命名，保持测试全绿后进入下一轮。\n\n例外（须用户同意）：一次性抛弃原型、纯生成物、纯配置文件。\n\n常见违规自检：\n- 先写了实现再补测试？删掉实现，从测试重来；不留作「参考」，不看它，删就是删。\n- 测试写完直接绿？说明测的是已有行为，不是新行为——改测试到能失败。\n- 一次写五个测试再统一实现？退回一次一个测试。\n\n修 bug 时：先写一个能复现该 bug 的失败测试，再修到全绿——它同时就是防回归测试。",
+  "source": "third_party",
+  "upstream": "https://github.com/obra/superpowers",
+  "upstream_commit": "8ca22dba9a94",
+  "converted_at": "2026-09-28",
+  "converted_by": "Shadeling 策展（小白，设计意图参考 obra/superpowers/test-driven-development，MIT）"
+}

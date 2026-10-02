@@ -1,0 +1,47 @@
+---
+name: 设计令牌
+version: 1.0.0
+author: Shadeling 策展
+summary: 设计决策变代码变量：三层令牌加主题切换
+description: 要把设计规范工程化、支持多主题多平台时使用：原始/语义/组件三层令牌、主题切换基建、组件变体体系。
+category: 设计
+tags: 设计系统, 令牌, 主题
+license: MIT
+trigger: 设计令牌 / 主题切换 / 换肤 / design token
+---
+
+# 设计令牌（Design Tokens）
+
+设计令牌 = 把设计决策（颜色、字号、间距）从「图上的标注」变成**代码里的变量**——一处定义、处处引用、全局可换。
+
+## 三层结构
+
+```
+原始层 primitive   ← 色值/尺寸本体（gray-900、blue-500、space-4）
+语义层 semantic    ← 用途（text-primary、surface-elevated、border-default）
+组件层 component   ← 组件级（button-bg、card-border、input-focus-ring）
+```
+
+铁律：**组件代码只引语义/组件层**，禁止直接引原始值——否则主题切换、品牌换色全是全局搜索替换地狱。语义层引用原始层、组件层引用语义层，引用方向单向。
+
+## 主题切换基建
+
+- 明暗主题（或品牌主题）= 语义层到原始层的**不同映射**，组件层零改动。
+- 实现载体：CSS 自定义属性（Web）/ 主题对象（原生 App）——运行时切换 + 持久化用户选择 + 跟随系统（prefers-color-scheme）三态齐备。
+- 边缘主题一并入令牌：高对比模式、减弱动效（motion.fast / motion.off）都是令牌，不是特判散落。
+
+## 组件变体体系
+
+- 组件 API 用 `variant`（primary/destructive/ghost）与 `size`（sm/md/lg）收口样式差异，组件内部查表取令牌——**别让调用方传裸样式**。
+- 多态组件（as prop 可换渲染元素）与插槽组合（slot）让组件树既统一又灵活。
+- headless 模式（逻辑与样式分离）适合跨主题/跨平台复用逻辑的场景。
+
+## 管线与治理
+
+- 令牌单一事实源：一份定义（JSON/YAML），生成各端产物（CSS 变量、iOS/Android 资源）——手工同步三平台必漂移。
+- 变更走评审：令牌是公共 API，改名/删值 = breaking change，按版本化纪律走。
+- 定期扫「绕过令牌的裸值」——出现即收编，破口不过夜。
+
+## 收尾清单
+
+三层结构齐 / 组件零裸值 / 主题切换只动语义层映射 / 单一事实源多端生成 / 令牌变更走评审 / 裸值扫描在转。

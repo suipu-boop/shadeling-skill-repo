@@ -1,0 +1,27 @@
+{
+  "name": "一手源调研",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "只查一手来源，论断皆可溯源",
+  "description": "需要查证一个主题、收集文档或 API 事实时使用：对着官方文档/源代码/第一方资料调研，产出带引用的调研笔记。",
+  "category": "调研",
+  "tags": [
+    "调研",
+    "事实核查",
+    "文档"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "帮我调研",
+    "查一下资料",
+    "这个说法对吗",
+    "收集文档"
+  ],
+  "content": "派一个**后台代理**去做调研——它在读资料，你继续干你的活。\n\n它的任务：\n\n1. 对着**一手来源**调研问题：官方文档、源代码、规格、第一方 API——不查二手转述。每个论断都追到**拥有它**的那个来源。\n2. 把发现写进**一份** Markdown 文件，每个论断标注出处。\n3. 存到仓库已经放这类笔记的地方；沿用既有惯例，没有惯例就放个合理的位置并说明放在了哪。",
+  "source": "third_party",
+  "upstream": "https://github.com/mattpocock/skills",
+  "upstream_commit": "d81f3a183412",
+  "converted_at": "2026-10-01",
+  "converted_by": "Shadeling 策展"
+}

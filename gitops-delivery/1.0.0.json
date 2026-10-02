@@ -1,0 +1,27 @@
+{
+  "name": "GitOps 交付",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "Git 即真相：声明式、自动拉取、持续对账",
+  "description": "要把部署改成声明式 Git 驱动、实现环境一致性时使用：GitOps 四原则、仓库结构、同步策略、渐进交付与密钥处理。",
+  "category": "开发",
+  "tags": [
+    "GitOps",
+    "部署",
+    "K8s"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "GitOps",
+    "声明式部署",
+    "环境一致性",
+    "集群部署"
+  ],
+  "content": "# GitOps 交付\n\nGitOps = **Git 是期望状态的唯一真相源**，控制器自动拉取并对账——「谁改了线上」的答案永远是「看 Git 历史」。\n\n## 四原则（OpenGitOps）\n\n1. **声明式**：整套系统用声明式描述（是什么，不是怎么装）。\n2. **版本化不可变**：期望状态存 Git，改动 = 提交（可追溯可回滚）。\n3. **自动拉取**：集群侧代理拉取期望状态（不是 CI 推）——pull 模式天然防火墙友好且不会推坏集群。\n4. **持续对账**：实际状态漂移时自动纠正回期望状态。\n\n## 仓库结构\n\n```\ngitops-repo/\n├── apps/<环境>/<应用>/       ← 应用清单（kustomize overlay 按环境叠差异）\n├── infrastructure/           ← 集群基建（ingress/证书/监控）\n└── <控制器>/applications/    ← App-of-Apps：一个根应用管理全部应用\n```\n\n环境差异用 overlay（基础 + 生产/测试差异层），**别复制三份清单**——复制必漂移。\n\n## 同步策略\n\n- 自动同步 + **prune**（Git 里删了的资源集群里也删）+ **selfHeal**（有人手改集群自动纠正）——手改线上从此无效，这是特性不是 bug。\n- 重试退避配置好；生产环境可加**人工审批门**（同步前需确认）——节奏与风险平衡。\n- 同步失败告警必配——GitOps 沉默失败 = 没人知道线上和 Git 不一致。\n\n## 渐进交付（配合部署管线技能）\n\n金丝雀步骤化：20% → 暂停观察 → 50% → 100%；蓝绿双服务切换、手动晋级开关。指标验证自动晋级（失败自动回滚）在控制器层实现。\n\n## 密钥处理（GitOps 的特有坑）\n\n- **明文密钥永不进 Git**——两解：\n  1. **External Secrets**：Git 只存引用，真值在密钥管理服务，运行时同步。\n  2. **Sealed Secrets**：加密后可进 Git，只有集群能解。\n- Git 仓库权限即部署权限：仓库 RBAC 认真配——能 push 到 main 就能改生产。\n\n## 收尾清单\n\n四原则齐 / overlay 管环境差异 / prune+selfHeal 开 / 同步失败告警 / 密钥经外部化或密封 / 生产审批门 / 回滚 = revert 提交。",
+  "source": "third_party",
+  "upstream": "https://github.com/wshobson/agents",
+  "upstream_commit": "156b7a5e7a8b",
+  "converted_at": "2026-10-02",
+  "converted_by": "Shadeling 策展"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Python 类型安全",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "注释当文档用：签名全标注、收窄、泛型、Result 模式",
+  "description": "要让类型检查器帮 Python 代码抓错时使用：公共签名全标注、现代联合语法、条件收窄、泛型容器与 Result 错误模式。",
+  "category": "开发",
+  "tags": [
+    "Python",
+    "类型",
+    "类型检查"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "加类型注解",
+    "类型检查",
+    "mypy 报错",
+    "类型安全"
+  ],
+  "content": "# Python 类型安全\n\n类型注解是**会被工具强制的文档**：写一次，静态检查替你抓一辈子的错。\n\n## 公共签名全标注\n\n所有公开函数：入参、返回值全注解。返回值最值钱——「可能没有」必须写成 `X | None`，调用方被迫处理 None 分支：\n\n```python\ndef get_user(user_id: str) -> User | None:\n    \"\"\"返回值类型把「可能不存在」写成了显式契约。\"\"\"\n\nuser = get_user(\"123\")\nif user is None:\n    raise UserNotFoundError(\"123\")\nprint(user.name)   # 检查器知道这里 user 一定是 User\n```\n\n现代联合语法直接用 `X | None`（3.10+），不写 `Optional[X]`。集合永远带参数：`list[User]`、`dict[str, int]`。\n\n## 条件收窄（narrowing）\n\n检查器顺着条件分支缩类型：\n\n```python\ndef process_user(user_id: str) -> UserData:\n    user = find_user(user_id)\n    if user is None:\n        raise UserNotFoundError(f\"User {user_id} not found\")\n    return UserData(name=user.name, ...)   # 这里已收窄为 User\n\ndef process_items(items: list[Item | None]) -> list[ProcessedItem]:\n    valid = [i for i in items if i is not None]   # 收窄成 list[Item]\n    return [process(i) for i in valid]\n```\n\n先断言/早抛，后面的代码就站在「已验证」的地基上——这是类型安全与快速失败的合流点。\n\n## 泛型容器：Result 模式\n\n错误处理里最实用的泛型：成功或失败二选一，类型系统强制调用方二选一地处理：\n\n```python\nT = TypeVar(\"T\"); E = TypeVar(\"E\", bound=Exception)\n\nclass Result(Generic[T, E]):\n    def is_success(self) -> bool: ...\n    def unwrap(self) -> T:            # 失败时抛出内含错误\n        ...\n    def unwrap_or(self, default: T) -> T: ...\n\ndef parse_config(path: str) -> Result[Config, ConfigError]: ...\n\nresult = parse_config(\"config.yaml\")\nif result.is_success:\n    config = result.unwrap()          # 类型: Config\n```\n\n约束：value 与 error 恰好一个有值（构造时校验）。\n\n## Protocol：面向能力而非继承\n\n鸭子类型的静态版——函数声明「我需要什么方法」，不关心来路：\n\n```python\nclass Closeable(Protocol):\n    def close(self) -> None: ...\n\ndef cleanup(res: Closeable) -> None:\n    res.close()      # 任何有 close() 的对象都收\n```\n\n## 渐进落地\n\n- 老库不要求一口气全标——从公共 API 与最近改动区开始（对应架构普查的热区思路）。\n- `py.typed` 标记文件放进包里，下游才能吃到你的注解。\n- 配置：严格度随项目成长逐步上调；CI 里跑类型检查当门禁，红灯不过合并。",
+  "source": "third_party",
+  "upstream": "https://github.com/wshobson/agents",
+  "upstream_commit": "156b7a5e7a8b",
+  "converted_at": "2026-10-02",
+  "converted_by": "Shadeling 策展"
+}

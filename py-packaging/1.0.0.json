@@ -1,0 +1,27 @@
+{
+  "name": "Python 打包发布",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "pyproject 一把梭：src 布局、构建、发布 PyPI",
+  "description": "要把 Python 代码做成可安装的包并发布时使用：src 布局防误导入、pyproject.toml 全量配置、本地构建、TestPyPI 试发布。",
+  "category": "开发",
+  "tags": [
+    "Python",
+    "打包",
+    "发布"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "打包发布",
+    "做 Python 包",
+    "发 PyPI",
+    "pyproject 配置"
+  ],
+  "content": "# Python 打包发布\n\n现代打包全走 `pyproject.toml` 一个文件，不再用 setup.py 散装配置。\n\n## 目录：src 布局（首选）\n\n```\nmy-package/\n├── pyproject.toml\n├── README.md\n├── LICENSE\n├── src/\n│   └── my_package/\n│       ├── __init__.py\n│       ├── core.py\n│       └── py.typed        # 有类型注解就放这个标记\n└── tests/\n    └── test_core.py\n```\n\nsrc 布局的好处：**必须先安装才能导入**——杜绝「在项目根目录能跑、装完就坏」的经典事故；测试测到的就是用户装到的。配套配置：\n\n```toml\n[tool.setuptools.packages.find]\nwhere = [\"src\"]\n```\n\n扁平布局（包目录放根下）仅用于不需要安装的内部小工具。\n\n## pyproject.toml 最小集\n\n```toml\n[build-system]\nrequires = [\"setuptools>=61.0\"]\nbuild-backend = \"setuptools.build_meta\"\n\n[project]\nname = \"my-package\"\nversion = \"0.1.0\"\ndescription = \"一句话说明\"\nreadme = \"README.md\"\nrequires-python = \">=3.10\"\ndependencies = [\"requests>=2.28\"]\n\n[project.optional-dependencies]\ndev = [\"pytest>=7.0\", \"ruff>=0.4\"]\n```\n\n- 依赖约束写**下限**（`>=`），上限留给应用层锁。\n- 可选依赖组（dev/docs/test）让用户按需装。\n- 版本单一事实源：`__init__.py` 里 `__version__`，配置 `dynamic = [\"version\"]` 自动读取；或用 setuptools-scm 直接从 git tag 生成。\n\n## 本地构建\n\n```bash\npython -m build        # 产出 dist/：.tar.gz 源码包 + .whl 轮子\ntwine check dist/*     # 元数据体检\n```\n\n两条产物都要有：轮子给用户快装，源码包给打包器回退。\n\n## 发布：先试后真\n\n```bash\ntwine upload --repository testpypi dist/*     # 1. 先发 TestPyPI\npip install --index-url https://test.pypi.org/simple/ my-package   # 2. 装回验证\ntwine upload dist/*                            # 3. 没问题再发 PyPI\n```\n\n- 认证用 API token（`~/.pypirc` 配 `username = __token__`），不配明文密码。\n- 版本号只增不减；发错了就发新版本，别重传同名版本。\n- CI 自动发布：打 tag 触发构建 + twine 上传，人只管打 tag。\n\n## 收尾清单\n\nsrc 布局 / pyproject 全量元数据 / 依赖写下限 / py.typed（若有注解）/ 本地 build+check 过 / TestPyPI 试装过 / token 认证。",
+  "source": "third_party",
+  "upstream": "https://github.com/wshobson/agents",
+  "upstream_commit": "156b7a5e7a8b",
+  "converted_at": "2026-10-02",
+  "converted_by": "Shadeling 策展"
+}

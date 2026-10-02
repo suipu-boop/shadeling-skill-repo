@@ -1,0 +1,27 @@
+{
+  "name": "内存安全",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "RAII 绑定生命周期、所有权明确、工具兜底",
+  "description": "写系统级代码防内存 bug、管理资源生命周期时使用：六大内存 bug 分类、安全光谱、RAII/智能指针/所有权模式、检测工具。",
+  "category": "开发",
+  "tags": [
+    "内存安全",
+    "系统编程",
+    "资源管理"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "内存安全",
+    "内存泄漏",
+    "智能指针",
+    "use-after-free"
+  ],
+  "content": "# 内存安全\n\n内存 bug 六大类，**每类有对应的结构性预防手段**——靠纪律不靠记性：\n\n| Bug | 本质 | 结构性预防 |\n|---|---|---|\n| Use-after-free | 访问已释放内存 | 所有权/R lifetime |\n| Double-free | 重复释放 | 智能指针（释放权唯一） |\n| 内存泄漏 | 只借不还 | RAII（栈对象析构必执行） |\n| 缓冲区溢出 | 写过界 | 边界检查容器 |\n| 悬垂指针 | 指向已释放 | 生命周期跟踪 |\n| 数据竞争 | 并发无同步访问 | 所有权/锁 |\n\n## 安全光谱（选语言=选安全档位）\n\n```\n手动管理(C) → 智能指针(C++) → 所有权(Rust) → GC(Go/Java)\n  最危险 ←————————————————————————→ 最安全\n  最可控 ←————————————————————————→ 最失控\n```\n\n选型直觉：**控制要求极端的底层用 C/Rust，业务服务交给 GC 语言**——在安全与控制间取点，别在 GC 语言里怀念手动、也别在 C 里假装安全。\n\n## RAII（资源即对象）\n\n**资源生命周期绑定对象生命周期**：文件、socket、锁、内存——拿到即入对象，出作用域自动释放。C++ 的 unique_ptr/lock_guard、Rust 的 Drop 都是此道。纪律：\n\n- 释放逻辑**只写一次**（在析构里），不在每个 return 分支手写 close——手写必漏一路。\n- C++ 出参/传参用智能指针（unique_ptr 独占、shared_ptr 共享），**裸指针只用于「借用不拥有」**。\n\n## 所有权思维\n\n- 写共享数据前先答：**谁拥有它？谁只是借用？借用到什么时候？**——三问答不清就是数据竞争预备役。\n- 多线程共享可变状态：要么上锁（明确锁的层级防死锁），要么改设计（消息传递/不可变数据）。\n- 不可变优先：共享只读数据天然安全——能 immutable 就 immutable。\n\n## 工具兜底（编译器之外的第二双眼）\n\n- AddressSanitizer：内存错误检测（C/C++，编译开关即用）。\n- Valgrind：泄漏与未初始化内存。\n- ThreadSanitizer：数据竞争。\n- Rust Miri：未定义行为检测。\n- **进 CI 常态跑**（抽测或全量）——内存 bug 上线后修的代价是开发期的百倍。编译器警告零容忍：警告抓的常常就是内存 bug。\n\n## 收尾清单\n\nRAII 管资源 / 释放逻辑只写一次 / 裸指针仅借用 / 所有权三问先行 / 不可变优先 / sanitizer 进 CI / 编译警告清零。",
+  "source": "third_party",
+  "upstream": "https://github.com/wshobson/agents",
+  "upstream_commit": "156b7a5e7a8b",
+  "converted_at": "2026-10-02",
+  "converted_by": "Shadeling 策展"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "分布式追踪",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "全链路 span、上下文传播、采样省成本",
+  "description": "排查跨服务延迟、理清调用依赖、定位瓶颈时使用：trace/span 模型、上下文传播、采样策略、与日志指标关联。",
+  "category": "开发",
+  "tags": [
+    "可观测性",
+    "追踪",
+    "微服务"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "链路追踪",
+    "分布式追踪",
+    "调用链",
+    "trace"
+  ],
+  "content": "# 分布式追踪\n\n微服务排障的痛点：一次请求过五道服务，慢在哪一环？日志各看各的拼不出全貌。分布式追踪 = **一次请求从头到尾记录成一条 trace**（每段是一棵 span 树），瓶颈一眼可见。\n\n## 模型\n\n- **Trace**：一次请求的全旅程。**Span**：旅程中的一段（一个服务内的一次处理），带起止时间、属性、父引用。\n- 关键属性标签：user_id、request_id、订单号——**没有业务标签的 trace 无法按问题检索**。\n- span events 记里程碑（重试、降级触发、缓存命中）；异常连堆栈记进 span。\n\n## 上下文传播（全链路的前提）\n\n跨服务调用必须**传播 trace 上下文**（标准 header，如 W3C traceparent）——HTTP 头、消息队列属性、gRPC metadata 全覆盖。**断一环 = 该环之后全是孤儿 trace**——中间件统一注入，别靠每处手写。\n\n## 采样（成本与价值的平衡）\n\n- 生产 **1-10% 常规采样** + **错误全采样**（tail-based：出错的、慢的 trace 必留）——健康请求少留，出事的全留。\n- 开发环境 100%——排障期随时动态调高，按流量回到常态。\n- 追踪自身开销 <1% CPU——批量导出 span，别同步阻塞主请求。\n\n## 与日志、指标关联\n\n- **trace_id 进日志**：日志里带 trace_id，从慢 trace 一跳到该请求全部日志——三大支柱打通的关键一跳。\n- 指标发现异常（P99 升）→ 看 exemplar 关联的 trace → trace 定位到慢 span → 日志看细节——这是标准排障路径。\n\n## 依赖图\n\n从 trace 数据自动生成服务调用拓扑——**真实调用图**（比架构图诚实，微服务文档半年就过时，trace 是实时的）。依赖图也是变更风险评估的输入：改这个服务影响谁，看图。\n\n## 收尾清单\n\n全服务接入统一中间件 / 上下文全边界传播（含 MQ）/ 业务标签齐全 / 错误全采样+常态低采样 / trace_id 进日志 / 开销 <1% / 依赖图例行查看。",
+  "source": "third_party",
+  "upstream": "https://github.com/wshobson/agents",
+  "upstream_commit": "156b7a5e7a8b",
+  "converted_at": "2026-10-02",
+  "converted_by": "Shadeling 策展"
+}

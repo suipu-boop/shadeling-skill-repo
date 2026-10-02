@@ -1,0 +1,27 @@
+{
+  "name": "提示工程模式",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "少样本、思维链、结构化输出、模板化系统提示",
+  "description": "要稳定让大模型产出可用结果时使用：few-shot 示例选法、思维链引导、结构化输出约束、模板与系统提示设计套路。",
+  "category": "AI",
+  "tags": [
+    "提示工程",
+    "LLM",
+    "结构化输出"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "写提示词",
+    "prompt 技巧",
+    "让模型输出稳定",
+    "提示模板"
+  ],
+  "content": "# 提示工程模式\n\n把「调提示」从玄学变成工程：每个模式解决一类不稳定。\n\n## 少样本（few-shot）\n\n模型模仿力强于理解力。给 2-5 个**边界覆盖**的示例——不只给典型例，专门给「容易错的」：含糊输入、特殊情况、期望拒绝的输入。示例格式必须与真实输入**完全一致**（同一模板渲染），否则模型学歪。\n\n## 思维链（CoT）\n\n推理类任务，让模型**先写推理过程再给答案**：「先逐步分析，最后给出结论」。推理步骤本身就是可检查的中间产物——错了能定位哪步跑偏。注意：简单任务别硬上 CoT，纯增延迟。\n\n## 结构化输出\n\n把「输出 JSON」的祈祷换成 schema 约束：\n\n```python\nclass SQLQuery(BaseModel):\n    query: str = Field(description=\"The SQL query\")\n    explanation: str = Field(description=\"Brief explanation\")\n    tables_used: list[str] = Field(description=\"Tables referenced\")\n\nstructured_llm = llm.with_structured_output(SQLQuery)\n```\n\n- schema 即文档：字段描述写清约束（格式、单位、可选值）。\n- 结构化输出 + 校验器（pydantic）+ 校验失败重试 = 生产可用的管道。\n- 模型偶尔不听话是常态，**校验兜底**才是设计的一部分。\n\n## 系统提示设计\n\n- 角色一句话讲清（「你是 SQL 专家」），别写小作文。\n- 硬约束显式列出（「总是用参数化查询」「无法回答就直说不知道」）。\n- 输出格式要求放系统提示，用户消息只装数据——两层别混。\n- 长系统提示里，**开头与结尾**的内容权重最高，关键约束放这两处。\n\n## 模板化\n\n提示是代码不是散文：进版本库、走评审、有回归测试集。改提示 = 改代码，跑测试集对比再合入。\n\n## 评估闭环（与 llm-evaluation 配套）\n\n- 建**黄金测试集**：典型 + 边界 + 历史翻车案例。\n- 每次改提示跑一遍，通过率有数字。\n- 线上采样抽查，坏例回流测试集。\n\n## 常见坑\n\n- 示例与真实输入格式不一致（最高频翻车）\n- 让模型「不要编造」却没给逃生门（应说「不确定就回答 UNKNOWN」）\n- 提示越写越长全堆用户消息——分层：系统约束/少样本/当前输入\n- 一次改多处——一次改一处，跑了测试集再说\n\n## 收尾清单\n\n少样本含边界例 / 推理类有 CoT / 输出走 schema 校验 / 系统提示分层清晰 / 提示进版本库 / 有黄金测试集。",
+  "source": "third_party",
+  "upstream": "https://github.com/wshobson/agents",
+  "upstream_commit": "156b7a5e7a8b",
+  "converted_at": "2026-10-02",
+  "converted_by": "Shadeling 策展"
+}

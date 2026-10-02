@@ -1,0 +1,28 @@
+{
+  "name": "分支收尾",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "全绿后给选项，等用户拍板收尾",
+  "description": "实现完成、测试全绿、需要决定怎么整合工作时使用：验证测试 → 检测环境 → 给选项 → 执行选择 → 清理。",
+  "category": "开发",
+  "tags": [
+    "git",
+    "分支",
+    "合并",
+    "收尾"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "干完了怎么交",
+    "合并还是建请求",
+    "这个分支怎么办",
+    "活干完了"
+  ],
+  "content": "## 概述\n\n**核心原则：** 验证测试 → 检测环境 → 给出选项 → 执行选择 → 清理。\n\n## 第 1 步：验证测试\n\n跑项目全量测试套件。\n\n**测试挂了：** 报告失败并停下——全绿之后才谈选项：\n\n```\n测试挂了（<N> 个失败）。必须先修完才能收尾：\n[展示失败]\n```\n\n**测试过了：** 进第 2 步。\n\n## 第 2 步：检测环境\n\n```bash\nGIT_DIR=$(cd \"$(git rev-parse --git-dir)\" 2>/dev/null && pwd -P)\nGIT_COMMON=$(cd \"$(git rev-parse --git-common-dir)\" 2>/dev/null && pwd -P)\n# 趁还在工作区里先记下——第 6 步清理要在换目录之后用\nWORKTREE_PATH=$(git rev-parse --show-toplevel)\n```\n\n| 状态 | 菜单 | 清理 |\n|---|---|---|\n| `GIT_DIR == GIT_COMMON`（普通仓库） | 标准 3 项 | 无 worktree 可清 |\n| `GIT_DIR != GIT_COMMON`，具名分支 | 标准 3 项 | 按来源清（第 6 步） |\n| `GIT_DIR != GIT_COMMON`，游离 HEAD | 缩减 2 项（无合并） | 外部代管——原地保留 |\n\n## 第 3 步：确定基线分支\n\n基线分支 = 这个分支当初从哪分出来的——通常在计划、对话或分支的 upstream 里有名字。不确定就问：「这个分支是从〈你的最佳猜测〉分出来的，对吗？」**合并前确认**：合错基线代价很高。\n\n## 第 4 步：给选项\n\n**普通仓库和具名分支 worktree——原样给这 3 项：**\n\n```\n实现完成。接下来怎么处理？\n\n1. 本地合并回 <基线分支>\n2. 推送并建 Pull Request\n3. 分支原样保留（我回头处理）\n\n选哪个？\n```\n\n**游离 HEAD——原样给这 2 项：**\n\n```\n实现完成。你在游离 HEAD 上（外部代管的工作区）。\n\n1. 推为新分支并建 Pull Request\n2. 原样保留（我回头处理）\n\n选哪个？\n```\n\n菜单**原样呈现**，逐字来自上面的列表。等用户答复——**整合决策是用户的**。丢弃工作只在用户明确要求时发生（见下）。\n\n## 第 5 步：执行选择\n\n### 选项 1：本地合并\n\n```bash\n# 拿主仓库根，保证 CWD 安全\nMAIN_ROOT=$(git -C \"$(git rev-parse --git-common-dir)/..\" rev-parse --show-toplevel)\ncd \"$MAIN_ROOT\"\n\n# 先合并——确认成功再删任何东西\ngit checkout <基线分支>\ngit pull\ngit merge <功能分支>\n\n# 在合并结果上再跑一遍测试\n<测试命令>\n```\n\n合并结果测试挂了：停下，worktree 和分支原地保留，排查——没推送过，合并在本地，可回退。\n\n合并结果全绿：清理 worktree（第 6 步），然后删分支：\n\n```bash\ngit branch -d <功能分支>\n```\n\n### 选项 2：推送并建 PR\n\n```bash\ngit push -u origin <功能分支>\n# 游离 HEAD 上，给远端分支起名：\n# git push origin HEAD:refs/heads/<新分支名>\n```\n\n然后按基线分支建 PR/MR——用平台的 CLI 或推送后打印的创建链接，遵循仓库的 PR 模板惯例，把 URL 报给用户。\n\n**保留 worktree**——用户要在里面迭代 PR 反馈。\n\n### 选项 3：原样保留\n\n报告：「保留分支〈名字〉。Worktree 保留在〈路径〉。」\n\n### 用户明确要求丢弃时\n\n这条路**只**在用户明确说扔掉时存在。先确认：\n\n```\n这将永久删除：\n- 分支 <名字>\n- 全部提交：<提交清单>\n- <路径> 的 worktree\n\n输入 discard 确认。\n```\n\n等到**逐字**的确认后：回主仓库根，清理 worktree（第 6 步），强删分支：\n\n```bash\ngit branch -D <功能分支>\n```\n\n## 第 6 步：清理工作区\n\n**只在选项 1 和已确认的丢弃后运行。** 选项 2、3 永远保留 worktree。两种情况都已切到主仓库根——worktree 的移除必须从外面执行——用的是第 2 步换目录**之前**记下的 `GIT_DIR`/`GIT_COMMON`/`WORKTREE_PATH`。\n\n- `GIT_DIR == GIT_COMMON`：普通仓库，没有 worktree。完事。\n- `WORKTREE_PATH` 在 `.worktrees/` 或 `worktrees/` 下：本技能建的，自己清：\n  ```bash\n  git worktree remove \"$WORKTREE_PATH\"\n  git worktree prune   # 自愈：清掉失效登记\n  ```\n\n**移除被拒**（`contains modified or untracked files`）：worktree 里有别处没有的文件——没提交的计划、笔记、草稿。**绝不擅自 `--force`**。展示利害，问用户：提交到分支 / 挪回主仓库根 / 删掉（不可恢复）。执行选择后再移除。\n\n**其余情况：** 宿主环境代管的工作区——原地保留。平台有工作区退出工具就用它。\n\n## 速查表\n\n| 选项 | 合并 | 推送 | 留 worktree | 清分支 |\n|---|---|---|---|---|\n| 1. 本地合并 | ✓ | - | - | ✓ |\n| 2. 建 PR | - | ✓ | ✓ | - |\n| 3. 原样保留 | - | - | ✓ | - |\n| 丢弃（仅明确要求） | - | - | - | ✓（强删） |\n\n## 常见借口\n\n| 借口 | 现实 |\n|---|---|\n| 「测试这个会话里早就过了」 | 在**即将整合的这棵树**上跑。绿只证明它跑过的那棵树。 |\n| 「他们肯定想合并」 | 整合是用户的决策。给菜单，等答复。 |\n| 「这功能他们应该用完了，我提议删掉吧」 | 菜单按原文给全。丢弃只在用户亲口要求时发生。 |\n| 「『行，删了吧』算确认吧」 | 只有逐字输入 `discard` 才授权删除。 |\n| 「PR 都提了，worktree 现在是累赘」 | PR 反馈就在那个 worktree 里改。工作落地前它一直在。 |",
+  "source": "third_party",
+  "upstream": "https://github.com/obra/superpowers",
+  "upstream_commit": "8ca22dba9a94",
+  "converted_at": "2026-10-01",
+  "converted_by": "Shadeling 策展"
+}

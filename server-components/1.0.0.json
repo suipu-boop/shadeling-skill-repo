@@ -1,0 +1,27 @@
+{
+  "name": "服务器组件",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "默认服务端渲染、按需客户端化、流式补全慢数据",
+  "description": "用 Server Components 架构前端应用、决定组件在服务端还是客户端渲染时使用：渲染模式分工、边界规则、数据获取位置。",
+  "category": "开发",
+  "tags": [
+    "前端",
+    "渲染架构",
+    "React"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "服务端组件",
+    "Server Components",
+    "RSC",
+    "渲染模式"
+  ],
+  "content": "# 服务器组件\n\nServer Components 的核心取舍：**组件默认在服务端跑（可直连数据、零打包体积），需要交互才下放客户端**——「use client 只该用在刀刃上」。\n\n## 渲染模式分工\n\n| 模式 | 跑在哪 | 适用 |\n|---|---|---|\n| **服务器组件**（默认） | 服务端 | 数据获取、重计算、持密钥逻辑、大依赖 |\n| 客户端组件 | 浏览器 | 交互（onClick/useState）、浏览器 API |\n| 静态 | 构建期 | 不常变的内容 |\n| 动态 | 请求期 | 个性化/实时数据 |\n| 流式 | 渐进 | 大页面/慢数据源——先壳后瓤 |\n\n## 边界规则（最容易踩的三条）\n\n1. **边界单向**：客户端组件可以 import 服务器组件（作 children 传入），**反向不行**——服务端不能引客户端组件的逻辑。\n2. **跨边界只传可序列化数据**：函数、类实例传不过去；props 里带函数下放客户端 = 运行时炸。\n3. **服务器组件里禁用 hooks/事件**：useState/useEffect/onClick 都不是它的世界——需要就把交互部分拆成客户端叶子组件。\n\n## 数据获取纪律\n\n- **在用到数据的服务器组件里直接取**（就近）——不在顶层取全量再层层传递。\n- 缓存策略显式声明（如按小时重验证 ISR）：默认缓存还是动态请求要心中有数，别靠撞。\n- **客户端组件不自己发原始 fetch**：要么上移到服务器组件，要么走数据缓存库（配合前端状态管理技能的服务器状态分类）。\n- 慢数据源用 **Suspense 边界 + 流式**：页面壳先到，慢块渐进补全——每个慢块包一层 loading。\n\n## 收尾清单\n\n默认服务端 / use client 按需最小化 / 数据就近获取 / 缓存策略显式 / 跨边界只传可序列化 / 慢块 Suspense 流式 / 交互拆客户端叶子。",
+  "source": "third_party",
+  "upstream": "https://github.com/wshobson/agents",
+  "upstream_commit": "156b7a5e7a8b",
+  "converted_at": "2026-10-02",
+  "converted_by": "Shadeling 策展"
+}

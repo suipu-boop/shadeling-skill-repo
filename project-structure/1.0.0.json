@@ -1,0 +1,27 @@
+{
+  "name": "项目结构",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "一文件一概念、扁平目录、显式导出、测试镜像源码",
+  "description": "组织 Python 项目目录与模块时使用：单一职责文件、`__all__` 显式接口、扁平层级、测试目录与命名约定。",
+  "category": "开发",
+  "tags": [
+    "Python",
+    "项目结构",
+    "模块化"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "项目怎么组织",
+    "目录结构",
+    "模块划分",
+    "文件拆分"
+  ],
+  "content": "# 项目结构\n\n结构的目标：**新人 30 秒找到该改的文件**。四个抓手：内聚、显式、扁平、一致。\n\n## 一文件一概念\n\n文件该拆的信号：管了多个不相关的职责、超 300-500 行、里面的类因为不同的原因在变。\n\n```\n好：user_service.py（业务逻辑）/ user_repository.py（数据访问）/ user_models.py（数据结构）\n坏：user.py（service+repo+model+utils 一锅炖）\n```\n\n## 显式公共接口：`__all__`\n\n每个包的 `__init__.py` 用 `__all__` 声明对外面——没列出的就是内部实现，外部 import 即视为违约：\n\n```python\n# mypackage/services/__init__.py\nfrom .user_service import UserService\nfrom .exceptions import ServiceError\n\n__all__ = [\"UserService\", \"ServiceError\"]\n```\n\n好处：公共面一目了然、IDE 补全干净、重构内部结构不惊动使用方。\n\n## 扁平优先\n\n层级深 = import 长 + 导航累：\n\n```\n好：api/ services/ models/ utils/          （两层到顶）\n坏：core/internal/services/impl/user/      （点五层才能 import）\n```\n\n只有出现真子域需要隔离时才加子包，别为了「显得有结构」建空壳层。\n\n## 测试组织\n\n- 测试目录**镜像**源码结构：`services/user_service.py` ↔ `tests/services/test_user_service.py`——找测试不用猜。\n- 命名一律 `test_<单元>.py` / `test_<函数>`；测试文件彼此独立、可单跑、可乱序跑。\n\n## 命名与导入约定\n\n- 文件/模块：描述性 snake_case，禁缩写（`http_client.py` 不是 `http_cli.py`）。\n- 包初始化保持轻：`__init__.py` 只做导出与极轻装配，别塞业务逻辑（import 副作用是隐形炸弹）。\n- import 风格全项目一致：绝对导入为主、分组排序（标准库/三方/本地），交给格式化工具管。\n\n## 收尾清单\n\n文件单一职责 / 公共接口 `__all__` 显式 / 目录两层到顶 / 测试镜像源码 / `__init__.py` 零业务 / 命名无缩写。",
+  "source": "third_party",
+  "upstream": "https://github.com/wshobson/agents",
+  "upstream_commit": "156b7a5e7a8b",
+  "converted_at": "2026-10-02",
+  "converted_by": "Shadeling 策展"
+}

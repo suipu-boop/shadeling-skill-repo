@@ -1,0 +1,27 @@
+{
+  "name": "API 设计原则",
+  "version": "1.0.0",
+  "author": "Shadeling 策展",
+  "summary": "资源名词化、方法语义化、版本化、分页限速",
+  "description": "设计或评审 REST/GraphQL API 时使用：资源导向命名、HTTP 方法语义、版本策略、分页限速与错误结构统一。",
+  "category": "开发",
+  "tags": [
+    "API",
+    "REST",
+    "接口设计"
+  ],
+  "license": "MIT",
+  "provides_tool": "",
+  "trigger": [
+    "设计接口",
+    "API 规范",
+    "接口怎么定",
+    "RESTful 设计"
+  ],
+  "content": "# API 设计原则\n\n目标：让调用方**猜都猜得对**。可预期性是接口设计的最高美德。\n\n## 资源导向\n\n- URL 是名词（`/users`、`/orders`），动作交给 HTTP 方法：GET 查（幂等安全）、POST 建、PUT 全量替换（幂等）、PATCH 局部改、DELETE 删（幂等）。\n- 层级表达归属：`/users/{id}/orders`；过深的层级（>2 层）改用查询参数。\n- 集合用复数、命名全小写中划线、风格全 API 一致——**一致性 > 个人偏好**。\n\n## 状态码用对\n\n- 2xx 成功（201 建成附 Location、204 无返回体）\n- 4xx 客户端的错：400 参数错、401 未认证、403 无权限、404 不存在、409 冲突、429 限速\n- 5xx 服务端的错：别把业务错误塞 500\n- 错误响应结构统一：错误码 + 人话消息 + 可执行的提示，全 API 一个格式\n\n## 版本化：第一天就想好\n\n- URL 版本最直白：`/api/v1/users`（推荐，路由清晰）\n- Header 版本更「纯」但调试不直观：`Accept: application/vnd.api+json; version=1`\n- 破坏性变更 = 新版本；旧版本给迁移期并公示下线时间；字段只加不删，删前先标废弃。\n\n## 分页与限速\n\n- 集合接口**必须**分页：`page/page_size` 简单够用；数据大且要求稳定用游标（`cursor`）——深翻页不衰减。\n- 响应带总数与下一页指针，让客户端不用猜。\n- 限速保护自己：返回 429 时附 `Retry-After` 头（对端是程序，它只看头）。\n\n## GraphQL 补充（若用）\n\n- schema 先行：类型即领域模型，写 resolver 前先定 schema\n- 防 N+1：DataLoader 批量合并取数\n- 查询复杂度限制与深度限制（防恶意深挖）\n- 分页走 Relay 游标规范\n\n## 常见坑\n\n- 动词 URL（`/getUser`）——方法语义白瞎了\n- 200 里包错误体——监控系统全瞎\n- 无版本化，第一次破坏性变更时后悔\n- 无分页，数据涨了接口崩\n- 文档事后补——用 OpenAPI 注解随代码生成，文档和代码永不脱节\n\n## 收尾清单\n\n资源名词化 / 方法语义正确 / 状态码不乱用 / 错误结构统一 / 已版本化 / 集合已分页 / 有限速 / 文档自动生成。",
+  "source": "third_party",
+  "upstream": "https://github.com/wshobson/agents",
+  "upstream_commit": "156b7a5e7a8b",
+  "converted_at": "2026-10-02",
+  "converted_by": "Shadeling 策展"
+}

@@ -1,7 +1,7 @@
 {
   "name": "实施计划",
   "version": "1.0.0",
-  "author": "Shadeling 策展（设计意图参考 superpowers/writing-plans，MIT）",
+  "author": "Shadeling 策展",
   "summary": "把已确认需求拆成可照着做的分步实施计划",
   "description": "动手写代码前，把需求或设计拆成一份可直接照着做的实施计划，含文件结构、任务粒度、接口与自检。",
   "category": "开发",
