@@ -1,6 +1,6 @@
 {
   "schema": "shadeling-skill-repo/v1",
-  "updated_at": "2026-10-02",
+  "updated_at": "2026-10-03",
   "maintainer": "Shadeling 官方策展源（示例）",
   "skills": [
     {
@@ -671,7 +671,7 @@
       "version": "1.0.0",
       "author": "Shadeling 策展",
       "summary": "写技能先测基线失败，再最小成文",
-      "category": "教学 productivity",
+      "category": "教学",
       "tags": [
         "技能",
         "TDD",
@@ -1973,7 +1973,7 @@
       "version": "1.0.0",
       "author": "Shadeling 策展",
       "summary": "POUR 四原则 + 按影响分级 + 自动化只顶一半",
-      "category": "前端",
+      "category": "设计",
       "tags": [
         "前端",
         "无障碍",
@@ -1987,7 +1987,7 @@
       "version": "1.0.0",
       "author": "Shadeling 策展",
       "summary": "少而准——只测关键路径，测行为不测实现",
-      "category": "测试",
+      "category": "开发",
       "tags": [
         "测试",
         "E2E",
@@ -2001,7 +2001,7 @@
       "version": "1.0.0",
       "author": "Shadeling 策展",
       "summary": "六阶段取-补-滤-排-选-副效应框架",
-      "category": "后端",
+      "category": "AI",
       "tags": [
         "后端",
         "推荐",
@@ -2057,7 +2057,7 @@
       "version": "1.0.0",
       "author": "Shadeling 策展",
       "summary": "重试/超时/熔断/降级/隔离五件套",
-      "category": "后端",
+      "category": "开发",
       "tags": [
         "后端",
         "可靠性",

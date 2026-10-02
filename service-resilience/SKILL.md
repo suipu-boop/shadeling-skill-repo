@@ -4,7 +4,7 @@ version: 1.0.0
 author: Shadeling 策展
 summary: 重试/超时/熔断/降级/隔离五件套
 description: 给外部依赖调用加保护、设计故障兜底、提升服务可靠性时使用：失败三分类、重试与退避、熔断器三态、优雅降级、舱壁隔离。
-category: 后端
+category: 开发
 tags: 后端, 可靠性, 架构
 license: MIT
 trigger: 服务韧性 / 熔断重试 / 优雅降级 / 故障兜底

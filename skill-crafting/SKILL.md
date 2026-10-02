@@ -4,7 +4,7 @@ version: 1.0.0
 author: Shadeling 策展
 summary: 写技能先测基线失败，再最小成文
 description: 创建新技能、修改现有技能、或部署前验证技能时使用：压力场景测基线（红）→ 写最小技能（绿）→ 堵漏洞（重构）。
-category: 教学 productivity
+category: 教学
 tags: 技能, TDD, 文档
 license: MIT
 trigger: 写个技能 / 新建技能 / 改技能 / 技能不好使

@@ -4,7 +4,7 @@
   "author": "Shadeling 策展",
   "summary": "POUR 四原则 + 按影响分级 + 自动化只顶一半",
   "description": "做无障碍检查、修 WCAG 违规、让界面对辅助技术友好时使用：POUR 四原则、违规按影响分级清单、自动化加人工的组合测法、读屏与键盘要点。",
-  "category": "前端",
+  "category": "设计",
   "tags": [
     "前端",
     "无障碍",

@@ -4,7 +4,7 @@
   "author": "Shadeling 策展",
   "summary": "少而准——只测关键路径，测行为不测实现",
   "description": "写端到端测试、治理 flaky 测试、定测试分层策略时使用：测试金字塔、该测什么不该测什么、稳定选择器、flaky 根治。",
-  "category": "测试",
+  "category": "开发",
   "tags": [
     "测试",
     "E2E",
