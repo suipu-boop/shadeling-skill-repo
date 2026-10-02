@@ -2134,6 +2134,132 @@
         "测试"
       ],
       "download_url": "implementation-rhythm/1.0.0.json"
+    },
+    {
+      "id": "sci-skeleton",
+      "name": "SCI 论文骨架",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "论文四大件各就各位再动笔",
+      "category": "写作",
+      "tags": [
+        "写作",
+        "论文",
+        "学术"
+      ],
+      "download_url": "sci-skeleton/1.0.0.json"
+    },
+    {
+      "id": "reviewer-response",
+      "name": "审稿回复",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "逐条回应审稿意见的礼数与章法",
+      "category": "写作",
+      "tags": [
+        "写作",
+        "论文",
+        "审稿"
+      ],
+      "download_url": "reviewer-response/1.0.0.json"
+    },
+    {
+      "id": "mp-article",
+      "name": "公众号成稿",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "从选题到排版的公众号一条龙",
+      "category": "写作",
+      "tags": [
+        "写作",
+        "公众号",
+        "新媒体"
+      ],
+      "download_url": "mp-article/1.0.0.json"
+    },
+    {
+      "id": "med-plain",
+      "name": "医学科普转化",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "把术语翻成人话的三步转化法",
+      "category": "写作",
+      "tags": [
+        "写作",
+        "科普",
+        "医学"
+      ],
+      "download_url": "med-plain/1.0.0.json"
+    },
+    {
+      "id": "lit-review",
+      "name": "文献综述整理",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "把一堆文献读成一棵观点树",
+      "category": "写作",
+      "tags": [
+        "写作",
+        "综述",
+        "文献"
+      ],
+      "download_url": "lit-review/1.0.0.json"
+    },
+    {
+      "id": "lesson-plan",
+      "name": "教案结构",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "一堂课从目标到收束的五段设计",
+      "category": "教学",
+      "tags": [
+        "教学",
+        "教案",
+        "备课"
+      ],
+      "download_url": "lesson-plan/1.0.0.json"
+    },
+    {
+      "id": "question-bank",
+      "name": "题库设计",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "好题的四个零件与一道题的质检线",
+      "category": "教学",
+      "tags": [
+        "教学",
+        "出题",
+        "考核"
+      ],
+      "download_url": "question-bank/1.0.0.json"
+    },
+    {
+      "id": "classic-card",
+      "name": "典籍整理体例",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "校读古籍的条文卡片与版本留痕",
+      "category": "中医",
+      "tags": [
+        "中医",
+        "典籍",
+        "文献"
+      ],
+      "download_url": "classic-card/1.0.0.json"
+    },
+    {
+      "id": "formula-card",
+      "name": "方剂卡片",
+      "version": "1.0.0",
+      "author": "Shadeling 策展",
+      "summary": "一方一卡七字段，组方逻辑看得见",
+      "category": "中医",
+      "tags": [
+        "中医",
+        "方剂",
+        "学习"
+      ],
+      "download_url": "formula-card/1.0.0.json"
     }
   ]
 }
